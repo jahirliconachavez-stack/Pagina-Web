@@ -1,0 +1,326 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#21171c">
+  <meta name="description" content="Descubre prendas y accesorios para expresar tu estilo.">
+  <title>Luna Studio | Moda para ti</title>
+  <style>
+    /*
+          ↓
+         ↓↓↓
+        ↓↓↓↓↓       CAMBIA LOS COLORES AQUÍ
+       ↓↓↓↓↓↓↓      Edita los códigos HEX de abajo.
+      ↓↓↓↓↓↓↓↓↓     Esta es la paleta de toda la página.
+          ↓
+    */
+    :root {
+      --color-principal: #a33b60;       /* Botones, enlaces y detalles */
+      --color-principal-oscuro: #762742; /* Hover */
+      --color-secundario: #d9ad72;      /* Acento dorado */
+      --color-fondo: #fffaf8;           /* Fondo general */
+      --color-tinta: #261e21;           /* Texto */
+      --color-suave: #f6eeeb;           /* Secciones suaves */
+      --color-borde: #eadfdb;
+      --ancho: 1180px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 88px; }
+    body { margin: 0; color: var(--color-tinta); background: var(--color-fondo); font-family: Arial, Helvetica, sans-serif; line-height: 1.55; }
+    button, input { font: inherit; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    a { color: inherit; text-decoration: none; }
+    button { cursor: pointer; }
+    img, svg { display: block; max-width: 100%; }
+    .wrap { width: min(var(--ancho), calc(100% - 40px)); margin-inline: auto; }
+    .eyebrow { color: var(--color-principal); font-size: .72rem; font-weight: 800; letter-spacing: .18em; text-transform: uppercase; }
+    .section { padding: 78px 0; }
+    .section-heading { display: flex; align-items: end; justify-content: space-between; gap: 20px; margin-bottom: 28px; }
+    .section-heading h2 { margin: 5px 0 0; font: 500 clamp(2rem,4vw,3.15rem)/1.06 Georgia, serif; letter-spacing: -.035em; }
+    .section-heading p { color: #76696c; max-width: 420px; margin: 0; }
+    .btn { display: inline-flex; min-height: 46px; align-items: center; justify-content: center; gap: 10px; border: 1px solid var(--color-principal); border-radius: 999px; padding: 11px 22px; color: white; background: var(--color-principal); font-weight: 700; transition: .2s ease; }
+    .btn:hover { background: var(--color-principal-oscuro); border-color: var(--color-principal-oscuro); transform: translateY(-2px); }
+    .btn-light { color: var(--color-tinta); border-color: rgba(255,255,255,.75); background: white; }
+    .btn-light:hover { color: white; background: transparent; border-color: white; }
+    .icon { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+
+    /* Barra superior */
+    .top-note { padding: 8px 12px; text-align: center; color: #fff; background: var(--color-principal-oscuro); font-size: .75rem; letter-spacing: .06em; }
+    .site-header { position: sticky; z-index: 20; top: 0; color: white; background: rgba(33,23,28,.97); box-shadow: 0 7px 24px #24151d20; backdrop-filter: blur(12px); }
+    .nav-row { min-height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .brand { display: inline-flex; align-items: center; gap: 10px; color: white; font: 700 1.1rem Georgia, serif; letter-spacing: .15em; white-space: nowrap; }
+    .brand-mark { display: grid; width: 36px; height: 36px; place-items: center; border: 1px solid var(--color-secundario); border-radius: 50%; color: var(--color-secundario); font: 500 1.05rem Georgia,serif; }
+    .nav-links { display: flex; align-items: center; gap: clamp(16px,2.5vw,34px); margin: 0; padding: 0; list-style: none; }
+    .nav-links a { color: #f8f0f3; font-size: .86rem; }
+    .nav-links a:hover { color: var(--color-secundario); }
+    .nav-actions { display: flex; align-items: center; gap: 10px; }
+    .icon-btn { position: relative; width: 42px; height: 42px; display: grid; place-items: center; border: 1px solid #ffffff30; border-radius: 50%; color: white; background: transparent; }
+    .icon-btn:hover { border-color: var(--color-secundario); color: var(--color-secundario); }
+    .cart-count { position: absolute; top: -4px; right: -4px; display: grid; width: 19px; height: 19px; place-items: center; border-radius: 50%; color: #fff; background: var(--color-principal); font-size: .68rem; font-weight: 800; }
+    .menu-toggle { display: none; }
+
+    /* Portada: ilustración vectorial guardada directamente en este HTML */
+    .hero { position: relative; min-height: 610px; overflow: hidden; color: white; background: #5b3b43; }
+    .hero-art { position: absolute; inset: 0; width: 100%; height: 100%; }
+    .hero::after { position: absolute; inset: 0; content: ""; background: linear-gradient(90deg,rgba(24,14,19,.76),rgba(36,21,27,.35) 56%,rgba(36,21,27,.03)); }
+    .hero-content { position: relative; z-index: 1; min-height: 610px; display: flex; flex-direction: column; align-items: flex-start; justify-content: center; padding: 66px 0; }
+    .hero .eyebrow { color: #f0c89a; }
+    .hero h1 { max-width: 650px; margin: 18px 0; font: 500 clamp(3.25rem,8vw,6.7rem)/.94 Georgia,serif; letter-spacing: -.055em; }
+    .hero p { max-width: 460px; margin: 0 0 26px; color: #fff5f0; font-size: 1.05rem; }
+    .hero-buttons { display: flex; flex-wrap: wrap; gap: 12px; }
+    .hero-controls { position: absolute; z-index: 2; right: max(20px,calc((100vw - var(--ancho))/2)); bottom: 32px; display: flex; gap: 9px; }
+    .hero-controls button { width: 42px; height: 42px; border: 1px solid #ffffff9c; border-radius: 50%; color: white; background: #ffffff12; font-size: 1.2rem; }
+    .hero-controls button:hover { color: var(--color-tinta); background: white; }
+    .hero-slide { display: none; }
+    .hero-slide.active { display: block; animation: reveal .45s ease; }
+    @keyframes reveal { from { opacity: .45; } to { opacity: 1; } }
+
+    /* Categorías */
+    .category-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; }
+    .category-card { position: relative; min-height: 330px; display: flex; align-items: end; overflow: hidden; border-radius: 8px; color: white; background: #b7a5a1; isolation: isolate; }
+    .category-card::before { position: absolute; z-index: -1; inset: 0; content: ""; background: var(--category-bg); transition: transform .55s ease; }
+    .category-card::after { position: absolute; z-index: -1; inset: 0; content: ""; background: linear-gradient(0deg,#1d1519ba,transparent 75%); }
+    .category-card:hover::before { transform: scale(1.06); }
+    .category-content { padding: 25px; }
+    .category-content span { color: #f4d8b0; font-size: .7rem; letter-spacing: .15em; text-transform: uppercase; }
+    .category-content h3 { margin: 5px 0 12px; font: 500 2rem Georgia,serif; }
+    .text-link { display: inline-flex; align-items: center; gap: 8px; border-bottom: 1px solid #ffffffb5; padding-bottom: 4px; font-size: .82rem; font-weight: 700; }
+    .text-link:hover { color: #f4d8b0; }
+    .category-women { --category-bg: radial-gradient(ellipse at 53% 24%,#e7b9aa 0 10%,transparent 10.5%), radial-gradient(ellipse at 52% 68%,#9d5268 0 27%,transparent 27.5%), linear-gradient(135deg,#c3a49c,#714c57 68%,#45323a); }
+    .category-men { --category-bg: radial-gradient(ellipse at 58% 26%,#d6b397 0 10%,transparent 10.5%), radial-gradient(ellipse at 57% 68%,#39434b 0 27%,transparent 27.5%), linear-gradient(135deg,#b1a197,#586068 68%,#31363b); }
+    .category-accessories { --category-bg: radial-gradient(ellipse at 48% 46%,#d8a75e 0 13%,transparent 13.5%), radial-gradient(ellipse at 66% 65%,#8c5362 0 18%,transparent 18.5%), linear-gradient(135deg,#d6b6a1,#9c716c 68%,#59454a); }
+
+    /* Productos */
+    .products-section { background: #fff; }
+    .product-grid { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 20px; }
+    .product-card { position: relative; min-width: 0; border: 1px solid var(--color-borde); border-radius: 9px; padding: 10px; background: white; transition: transform .22s ease,box-shadow .22s ease; }
+    .product-card:hover { transform: translateY(-5px); box-shadow: 0 16px 35px #38202b18; }
+    .product-art { position: relative; display: grid; aspect-ratio: 4/4.7; overflow: hidden; place-items: center; border-radius: 5px; background: var(--art-bg,#f2e8e5); }
+    .product-art svg { width: 88%; height: 88%; transition: transform .35s ease; }
+    .product-card:hover .product-art svg { transform: scale(1.04); }
+    .badge { position: absolute; top: 12px; left: 12px; border-radius: 99px; padding: 5px 9px; color: white; background: var(--color-principal); font-size: .64rem; font-weight: 800; letter-spacing: .05em; text-transform: uppercase; }
+    .wish { position: absolute; top: 10px; right: 10px; width: 34px; height: 34px; border: 0; border-radius: 50%; color: var(--color-tinta); background: #ffffffdc; font-size: 1.15rem; }
+    .wish:hover,.wish.liked { color: var(--color-principal); }
+    .product-info { padding: 14px 6px 5px; }
+    .product-kind { margin: 0 0 5px; color: #897a7e; font-size: .7rem; letter-spacing: .1em; text-transform: uppercase; }
+    .product-info h3 { margin: 0; font: 600 1rem/1.35 Arial,sans-serif; }
+    .product-bottom { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-top: 13px; }
+    .price { color: var(--color-principal); font-size: 1rem; font-weight: 800; }
+    .old-price { margin-left: 6px; color: #9c9294; font-size: .78rem; text-decoration: line-through; }
+    .add-btn { width: 36px; height: 36px; display: grid; place-items: center; border: 0; border-radius: 50%; color: white; background: var(--color-principal); font-size: 1.25rem; }
+    .add-btn:hover { background: var(--color-principal-oscuro); transform: scale(1.06); }
+
+    /* Franja editorial y marcas */
+    .editorial { display: grid; grid-template-columns: 1fr 1fr; min-height: 410px; overflow: hidden; color: white; background: #34242b; }
+    .editorial-copy { display: flex; flex-direction: column; align-items: flex-start; justify-content: center; padding: clamp(32px,7vw,80px); }
+    .editorial-copy .eyebrow { color: #e7bd8c; }
+    .editorial-copy h2 { margin: 12px 0; font: 500 clamp(2.3rem,5vw,4rem)/1.04 Georgia,serif; }
+    .editorial-copy p { max-width: 430px; color: #e6dadd; }
+    .editorial-art { min-height: 360px; background: radial-gradient(ellipse at 50% 31%,#e4bba7 0 9%,transparent 9.5%), radial-gradient(ellipse at 50% 80%,#a33b60 0 30%,transparent 30.5%), linear-gradient(135deg,#98726d,#d7a987 49%,#75525c); }
+    .brand-row { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 18px; padding: 26px 0; border-top: 1px solid var(--color-borde); border-bottom: 1px solid var(--color-borde); color: #716267; }
+    .brand-row span { font: italic 600 1.1rem Georgia,serif; }
+
+    /* Boletín y pie */
+    .newsletter { padding: 62px 20px; text-align: center; background: var(--color-suave); }
+    .newsletter h2 { margin: 8px 0; font: 500 clamp(2rem,4vw,3rem) Georgia,serif; }
+    .newsletter p { color: #76696c; }
+    .newsletter-form { max-width: 510px; display: flex; gap: 8px; margin: 22px auto 0; }
+    .newsletter-form input { flex: 1; min-width: 0; min-height: 48px; border: 1px solid var(--color-borde); border-radius: 99px; padding: 0 18px; background: white; }
+    .form-message { min-height: 24px; color: var(--color-principal); font-size: .85rem; }
+    footer { padding: 46px 0 24px; color: white; background: #21171c; }
+    .footer-top { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 30px; padding-bottom: 35px; }
+    .footer-top p,.footer-top a { color: #cbbfc3; font-size: .85rem; }
+    .footer-top a:hover { color: var(--color-secundario); }
+    .footer-top h3 { margin-top: 0; font: 500 1.15rem Georgia,serif; }
+    .footer-links { display: grid; gap: 9px; }
+    .copyright { padding-top: 18px; border-top: 1px solid #ffffff20; color: #b7a9ae; font-size: .75rem; }
+    dialog { width: min(480px,calc(100% - 28px)); max-height: 80vh; border: 0; border-radius: 12px; padding: 0; color: var(--color-tinta); box-shadow: 0 20px 80px #0005; }
+    dialog::backdrop { background: #1a1117a8; backdrop-filter: blur(3px); }
+    .dialog-head { display: flex; justify-content: space-between; align-items: center; padding: 18px 22px; border-bottom: 1px solid var(--color-borde); }
+    .dialog-head h2 { margin: 0; font: 500 1.5rem Georgia,serif; }
+    .dialog-close { border: 0; color: #76696c; background: transparent; font-size: 1.5rem; }
+    .cart-items { display: grid; gap: 13px; max-height: 48vh; overflow: auto; padding: 18px 22px; }
+    .cart-line { display: flex; align-items: center; justify-content: space-between; gap: 10px; font-size: .9rem; }
+    .cart-line small { display: block; color: #76696c; }
+    .cart-total { display: flex; justify-content: space-between; padding: 16px 22px; border-top: 1px solid var(--color-borde); font-weight: 800; }
+    .toast { position: fixed; z-index: 50; right: 20px; bottom: 20px; transform: translateY(20px); opacity: 0; pointer-events: none; border-radius: 99px; padding: 12px 18px; color: white; background: #21171c; box-shadow: 0 8px 25px #0003; transition: .25s ease; }
+    .toast.show { transform: translateY(0); opacity: 1; }
+    :focus-visible { outline: 3px solid var(--color-secundario); outline-offset: 3px; }
+
+    @media (max-width: 900px) {
+      .nav-links { gap: 14px; }
+      .nav-links a { font-size: .78rem; }
+      .product-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+      .footer-top { grid-template-columns: repeat(2,1fr); }
+    }
+    @media (max-width: 680px) {
+      .wrap { width: min(var(--ancho),calc(100% - 30px)); }
+      .nav-row { min-height: 66px; }
+      .menu-toggle { display: grid; }
+      .nav-links { position: absolute; top: 66px; left: 0; right: 0; display: none; align-items: stretch; gap: 0; padding: 8px 20px 18px; background: #21171c; }
+      .nav-links.open { display: grid; }
+      .nav-links li a { display: block; padding: 12px 5px; border-bottom: 1px solid #ffffff18; font-size: .92rem; }
+      .brand { font-size: .95rem; letter-spacing: .1em; }
+      .brand-mark { width: 32px; height: 32px; }
+      .hero,.hero-content { min-height: 550px; }
+      .hero h1 { font-size: clamp(3rem,15vw,5rem); }
+      .hero-controls { right: 16px; bottom: 16px; }
+      .section { padding: 55px 0; }
+      .section-heading { display: block; }
+      .section-heading p { margin-top: 10px; }
+      .category-grid { grid-template-columns: 1fr; }
+      .category-card { min-height: 270px; }
+      .product-grid { gap: 11px; }
+      .product-card { padding: 7px; }
+      .product-info { padding: 11px 3px 4px; }
+      .product-info h3 { font-size: .9rem; }
+      .old-price { display: block; margin: 2px 0 0; }
+      .editorial { grid-template-columns: 1fr; }
+      .editorial-copy { min-height: 300px; }
+      .editorial-art { min-height: 260px; }
+      .brand-row { justify-content: center; gap: 15px 25px; }
+      .newsletter-form { flex-direction: column; }
+      .footer-top { grid-template-columns: 1fr 1fr; gap: 25px 18px; }
+    }
+    @media (prefers-reduced-motion: reduce) { *,*::before,*::after { scroll-behavior: auto !important; animation-duration: .01ms !important; transition-duration: .01ms !important; } }
+  </style>
+</head>
+<body>
+  <div class="top-note">ENVÍO GRATIS EN COMPRAS MAYORES A $75 · NUEVA COLECCIÓN DISPONIBLE</div>
+  <header class="site-header">
+    <div class="wrap nav-row">
+      <a class="brand" href="#inicio" aria-label="Luna Studio, inicio"><span class="brand-mark">L</span><span>LUNA STUDIO</span></a>
+      <button class="icon-btn menu-toggle" id="menuToggle" aria-label="Abrir menú" aria-expanded="false"><svg class="icon" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+      <nav aria-label="Navegación principal"><ul class="nav-links" id="navLinks">
+        <li><a href="#inicio">Inicio</a></li><li><a href="#coleccion">Colección</a></li><li><a href="#novedades">Novedades</a></li><li><a href="#historia">Nuestra esencia</a></li>
+      </ul></nav>
+      <div class="nav-actions">
+        <button class="icon-btn" id="searchToggle" aria-label="Buscar"><svg class="icon" viewBox="0 0 24 24"><circle cx="10.8" cy="10.8" r="6.8"/><path d="m16 16 4.5 4.5"/></svg></button>
+        <button class="icon-btn" id="cartOpen" aria-label="Abrir carrito"><svg class="icon" viewBox="0 0 24 24"><path d="M3 4h2l2.2 11.2a2 2 0 0 0 2 1.6h8.4a2 2 0 0 0 1.9-1.4L22 8H6"/><circle cx="10" cy="20" r="1"/><circle cx="18" cy="20" r="1"/></svg><span class="cart-count" id="cartCount">0</span></button>
+      </div>
+    </div>
+    <div class="wrap" id="searchPanel" hidden style="padding:0 0 14px"><input id="searchInput" type="search" placeholder="Busca una prenda..." aria-label="Buscar productos" style="width:100%;padding:12px 16px;border:1px solid #ffffff45;border-radius:99px;color:white;background:#ffffff12"></div>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio" aria-label="Colección destacada">
+      <div class="hero-slide active">
+        <svg class="hero-art" viewBox="0 0 1600 800" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Ilustración editorial de moda en tonos cálidos">
+          <defs><linearGradient id="heroBg" x2="1" y2="1"><stop stop-color="#b78b7e"/><stop offset=".52" stop-color="#7e555b"/><stop offset="1" stop-color="#382b32"/></linearGradient><linearGradient id="dress" x2=".8" y2="1"><stop stop-color="#dc9c9c"/><stop offset="1" stop-color="#8e405a"/></linearGradient></defs>
+          <rect width="1600" height="800" fill="url(#heroBg)"/><circle cx="1300" cy="150" r="240" fill="#f1d6b7" opacity=".22"/><path d="M1130 0h470v800h-470z" fill="#e5c5ad" opacity=".13"/><path d="M1050 800c30-230 90-380 210-440 110 30 180 200 220 440" fill="url(#dress)"/><path d="M1192 343c2-90 40-155 96-155s94 65 96 155l-20 80h-152z" fill="#c9957c"/><path d="M1184 285c5-96 60-144 123-126 41 12 68 51 73 113-34-30-80-44-119-40-23 31-47 48-77 53z" fill="#33242a"/><path d="M1286 388c-38 3-83 22-121 64l-96 162 72 34 126-121 134 167 84-32-101-217c-22-39-59-59-98-57z" fill="#b64e69"/><path d="M1253 391c22 20 52 28 78 20l33 38-55 72-76-76z" fill="#f3e4dd" opacity=".75"/><path d="M1030 800l77-170 76 27-19 143zM1470 800l-84-161 74-22 120 183z" fill="#30242a"/><path d="M1184 482c-47 53-68 114-72 174M1392 475c43 51 67 111 78 169" fill="none" stroke="#f2d5c9" stroke-width="8" opacity=".48"/>
+        </svg>
+        <div class="wrap hero-content"><span class="eyebrow">Nueva temporada · 2026</span><h1>Viste lo que eres.</h1><p>Prendas especiales para acompañarte todos los días. Encuentra ese estilo que se siente como tú.</p><div class="hero-buttons"><a class="btn" href="#coleccion">Explorar colección <span aria-hidden="true">→</span></a><a class="btn btn-light" href="#novedades">Ver novedades</a></div></div>
+      </div>
+      <div class="hero-slide">
+        <svg class="hero-art" viewBox="0 0 1600 800" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Ilustración de una colección urbana"><defs><linearGradient id="heroBg2" x2="1" y2="1"><stop stop-color="#8b9c94"/><stop offset="1" stop-color="#303f3a"/></linearGradient></defs><rect width="1600" height="800" fill="url(#heroBg2)"/><circle cx="1250" cy="160" r="250" fill="#f0d4b9" opacity=".24"/><path d="M1010 800c20-220 110-420 280-445 170 15 245 210 270 445" fill="#d0b294"/><path d="M1170 340c0-100 48-162 118-162s116 62 116 162l-32 86h-174z" fill="#d4a889"/><path d="M1158 284c22-108 111-151 190-95 33 23 48 62 52 114-52-42-122-56-242-19z" fill="#372c2c"/><path d="M1124 434l164-39 146 50-36 355h-330z" fill="#e7ded0"/><path d="M1124 444l-126 150 52 40 144-107M1434 448l125 154-53 37-132-103" fill="none" stroke="#d3a889" stroke-width="49" stroke-linecap="round"/><path d="M1287 395v400" stroke="#aa8f7e" stroke-width="5" opacity=".6"/></svg>
+        <div class="wrap hero-content"><span class="eyebrow">Esenciales con intención</span><h1>Menos, pero mejor.</h1><p>Diseños versátiles, detalles cuidados y piezas que vuelven a tu armario una y otra vez.</p><div class="hero-buttons"><a class="btn" href="#coleccion">Encuentra tus favoritos →</a></div></div>
+      </div>
+      <div class="hero-controls"><button id="previousSlide" aria-label="Anterior">‹</button><button id="nextSlide" aria-label="Siguiente">›</button></div>
+    </section>
+
+    <section class="section" id="coleccion"><div class="wrap">
+      <div class="section-heading"><div><span class="eyebrow">Encuentra tu estilo</span><h2>Compra por categoría</h2></div><p>Una selección pensada para combinar, repetir y hacer tuya.</p></div>
+      <div class="category-grid">
+        <a class="category-card category-women" href="#novedades"><div class="category-content"><span>Prendas para ti</span><h3>Mujer</h3><span class="text-link">Ver colección →</span></div></a>
+        <a class="category-card category-men" href="#novedades"><div class="category-content"><span>Estilo diario</span><h3>Hombre</h3><span class="text-link">Ver colección →</span></div></a>
+        <a class="category-card category-accessories" href="#novedades"><div class="category-content"><span>El detalle final</span><h3>Accesorios</h3><span class="text-link">Ver colección →</span></div></a>
+      </div>
+    </div></section>
+
+    <section class="section products-section" id="novedades"><div class="wrap">
+      <div class="section-heading"><div><span class="eyebrow">Selección de la semana</span><h2>Piezas que nos encantan</h2></div><p>Favoritos de la temporada, listos para formar parte de tu historia.</p></div>
+      <div class="product-grid" id="productGrid">
+        <article class="product-card" data-name="vestido rosa midi vestido mujer"><div class="product-art" style="--art-bg:#f1e1de"><span class="badge">Favorito</span><button class="wish" aria-label="Guardar vestido rosa">♡</button><svg viewBox="0 0 240 280" role="img" aria-label="Ilustración de vestido midi rosa"><ellipse cx="120" cy="258" rx="74" ry="10" fill="#d7c8c2"/><path d="M89 44c8-15 54-15 62 0l12 52 44 126c-50 29-124 30-174 0l44-126z" fill="#b74c68"/><path d="M89 45l31 22 31-22-7-19H96z" fill="#e9b4ac"/><path d="M120 67v154M91 97l-30 85m96-85 30 85" fill="none" stroke="#f2c9c1" stroke-width="4" opacity=".75"/><path d="M96 27c2-15 46-15 48 0v20c-15 12-33 12-48 0z" fill="#dbab99"/></svg></div><div class="product-info"><p class="product-kind">Mujer · Nueva colección</p><h3>Vestido midi rosa</h3><div class="product-bottom"><span class="price">$34.00 <span class="old-price">$42.00</span></span><button class="add-btn" data-product="Vestido midi rosa" data-price="34" aria-label="Agregar vestido al carrito">+</button></div></div></article>
+        <article class="product-card" data-name="camisa lino natural camisa hombre"><div class="product-art" style="--art-bg:#e9e4da"><span class="badge">Nuevo</span><button class="wish" aria-label="Guardar camisa de lino">♡</button><svg viewBox="0 0 240 280" role="img" aria-label="Ilustración de camisa de lino"><ellipse cx="120" cy="258" rx="75" ry="10" fill="#d7d0c5"/><path d="M81 42l39 20 39-20 48 31-27 46-18-10 11 110H67l11-110-18 10-27-46z" fill="#d5c7ac"/><path d="M81 42l39 20-20 35-32-24m92-31-40 20 21 35 32-24M120 62v177" fill="#eee5d6" stroke="#b8a98e" stroke-width="3"/><path d="M115 70h10v8h-10zm0 28h10v8h-10zm0 28h10v8h-10zm0 28h10v8h-10z" fill="#8c7966"/></svg></div><div class="product-info"><p class="product-kind">Hombre · Lino</p><h3>Camisa de lino natural</h3><div class="product-bottom"><span class="price">$29.00</span><button class="add-btn" data-product="Camisa de lino natural" data-price="29" aria-label="Agregar camisa al carrito">+</button></div></div></article>
+        <article class="product-card" data-name="bolso clásico cuero accesorios"><div class="product-art" style="--art-bg:#e8d9d0"><button class="wish" aria-label="Guardar bolso clásico">♡</button><svg viewBox="0 0 240 280" role="img" aria-label="Ilustración de bolso clásico"><ellipse cx="120" cy="240" rx="80" ry="12" fill="#d4c2b9"/><path d="M65 104h110l17 124H48z" fill="#794b44"/><path d="M86 108c0-43 12-63 34-63s34 20 34 63" fill="none" stroke="#794b44" stroke-width="12"/><path d="M65 125h110" stroke="#b98b61" stroke-width="5"/><rect x="109" y="144" width="22" height="25" rx="4" fill="#d8ad71"/><path d="M65 196h117" stroke="#633c38" stroke-width="3" opacity=".6"/></svg></div><div class="product-info"><p class="product-kind">Accesorios · Atemporal</p><h3>Bolso clásico Siena</h3><div class="product-bottom"><span class="price">$39.00</span><button class="add-btn" data-product="Bolso clásico Siena" data-price="39" aria-label="Agregar bolso al carrito">+</button></div></div></article>
+        <article class="product-card" data-name="chaqueta urbana beige hombre"><div class="product-art" style="--art-bg:#e5e2db"><span class="badge">-15%</span><button class="wish" aria-label="Guardar chaqueta urbana">♡</button><svg viewBox="0 0 240 280" role="img" aria-label="Ilustración de chaqueta beige"><ellipse cx="120" cy="258" rx="75" ry="10" fill="#d0cdc5"/><path d="M83 41l37 20 37-20 47 34-28 51-19-12 10 112H73l10-112-19 12-28-51z" fill="#9f8d76"/><path d="M83 41l37 20-19 38-32-24m91-34-40 20 20 38 32-24M120 61v165" fill="#b8aa94" stroke="#776b5c" stroke-width="3"/><path d="M76 145h29m50 0h28M83 191h28m36 0h29" stroke="#776b5c" stroke-width="3"/></svg></div><div class="product-info"><p class="product-kind">Unisex · Básico</p><h3>Chaqueta urbana beige</h3><div class="product-bottom"><span class="price">$42.00 <span class="old-price">$49.00</span></span><button class="add-btn" data-product="Chaqueta urbana beige" data-price="42" aria-label="Agregar chaqueta al carrito">+</button></div></div></article>
+      </div>
+    </div></section>
+
+    <section class="wrap editorial" id="historia"><div class="editorial-copy"><span class="eyebrow">Luna, con intención</span><h2>Tu estilo. Tu ritmo. Tu historia.</h2><p>Creemos en vestir con confianza y elegir prendas que te hagan sentir bien, hoy y siempre.</p><a class="btn" href="#coleccion">Conoce la colección →</a></div><div class="editorial-art" role="img" aria-label="Ilustración de moda en tonos rosa y arena"></div></section>
+
+    <section class="section"><div class="wrap"><div class="section-heading"><div><span class="eyebrow">Una buena elección</span><h2>Marcas que nos inspiran</h2></div><p>Diseño, calidad y personalidad en cada detalle.</p></div><div class="brand-row" aria-label="Marcas destacadas"><span>atelier lune</span><span>MONOCHROME</span><span>Casa Nativa</span><span>FORMA</span><span>Élan</span></div></div></section>
+
+    <section class="newsletter"><span class="eyebrow">Un pequeño detalle para ti</span><h2>Un 10% en tu primera compra</h2><p>Suscríbete para enterarte de nuevas colecciones y promociones.</p><form class="newsletter-form" id="newsletterForm"><label class="sr-only" for="emailInput">Tu correo electrónico</label><input id="emailInput" type="email" required placeholder="Tu correo electrónico"><button class="btn" type="submit">Quiero mi descuento</button></form><div class="form-message" id="formMessage" aria-live="polite"></div></section>
+  </main>
+
+  <footer><div class="wrap"><div class="footer-top"><div><a class="brand" href="#inicio"><span class="brand-mark">L</span><span>LUNA STUDIO</span></a><p>Moda para acompañarte y expresar quien eres.</p></div><div><h3>Explora</h3><div class="footer-links"><a href="#coleccion">Colección</a><a href="#novedades">Novedades</a><a href="#historia">Nuestra esencia</a></div></div><div><h3>Ayuda</h3><div class="footer-links"><a href="#newsletterForm">Envíos y devoluciones</a><a href="#newsletterForm">Preguntas frecuentes</a><a href="#newsletterForm">Contáctanos</a></div></div><div><h3>Síguenos</h3><p>Instagram · Pinterest · TikTok</p><p>Atención: lunes a sábado</p></div></div><div class="copyright">© 2026 Luna Studio. Página de demostración.</div></div></footer>
+
+  <dialog id="cartDialog" aria-labelledby="cartTitle"><div class="dialog-head"><h2 id="cartTitle">Tu carrito</h2><button class="dialog-close" id="cartClose" aria-label="Cerrar carrito">×</button></div><div class="cart-items" id="cartItems"><p>Tu carrito está vacío por ahora.</p></div><div class="cart-total"><span>Total</span><span id="cartTotal">$0.00</span></div><div style="padding:0 22px 22px"><button class="btn" id="checkoutButton" style="width:100%">Continuar</button></div></dialog>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script>
+    (() => {
+      const menuToggle = document.getElementById('menuToggle');
+      const navLinks = document.getElementById('navLinks');
+      menuToggle.addEventListener('click', () => {
+        const open = navLinks.classList.toggle('open');
+        menuToggle.setAttribute('aria-expanded', String(open));
+      });
+      navLinks.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+        navLinks.classList.remove('open'); menuToggle.setAttribute('aria-expanded', 'false');
+      }));
+
+      let activeSlide = 0;
+      const slides = [...document.querySelectorAll('.hero-slide')];
+      function showSlide(next) {
+        activeSlide = (next + slides.length) % slides.length;
+        slides.forEach((slide, i) => slide.classList.toggle('active', i === activeSlide));
+      }
+      document.getElementById('previousSlide').addEventListener('click', () => showSlide(activeSlide - 1));
+      document.getElementById('nextSlide').addEventListener('click', () => showSlide(activeSlide + 1));
+      let autoSlide = setInterval(() => showSlide(activeSlide + 1), 6500);
+      document.querySelector('.hero').addEventListener('mouseenter', () => clearInterval(autoSlide));
+      document.querySelector('.hero').addEventListener('mouseleave', () => autoSlide = setInterval(() => showSlide(activeSlide + 1), 6500));
+
+      const cart = new Map();
+      const dialog = document.getElementById('cartDialog');
+      const toast = document.getElementById('toast');
+      let toastTimer;
+      function notify(message) { toast.textContent = message; toast.classList.add('show'); clearTimeout(toastTimer); toastTimer = setTimeout(() => toast.classList.remove('show'), 2200); }
+      function drawCart() {
+        const count = [...cart.values()].reduce((sum, item) => sum + item.quantity, 0);
+        document.getElementById('cartCount').textContent = count;
+        const list = document.getElementById('cartItems');
+        if (!count) { list.innerHTML = '<p>Tu carrito está vacío por ahora.</p>'; }
+        else {
+          list.innerHTML = [...cart.values()].map(item => `<div class="cart-line"><span>${item.name}<small>${item.quantity} × $${item.price.toFixed(2)}</small></span><strong>$${(item.quantity * item.price).toFixed(2)}</strong></div>`).join('');
+        }
+        const total = [...cart.values()].reduce((sum, item) => sum + item.price * item.quantity, 0);
+        document.getElementById('cartTotal').textContent = `$${total.toFixed(2)}`;
+      }
+      document.querySelectorAll('.add-btn').forEach(button => button.addEventListener('click', () => {
+        const name = button.dataset.product, price = Number(button.dataset.price);
+        const item = cart.get(name) || { name, price, quantity: 0 }; item.quantity++; cart.set(name, item);
+        drawCart(); notify(`${name} se agregó al carrito`);
+      }));
+      document.querySelectorAll('.wish').forEach(button => button.addEventListener('click', () => {
+        button.classList.toggle('liked'); button.textContent = button.classList.contains('liked') ? '♥' : '♡';
+      }));
+      document.getElementById('cartOpen').addEventListener('click', () => dialog.showModal());
+      document.getElementById('cartClose').addEventListener('click', () => dialog.close());
+      dialog.addEventListener('click', event => { if (event.target === dialog) dialog.close(); });
+      document.getElementById('checkoutButton').addEventListener('click', () => notify(cart.size ? 'Esta demostración no procesa pagos.' : 'Agrega un producto para continuar.'));
+
+      const searchPanel = document.getElementById('searchPanel');
+      document.getElementById('searchToggle').addEventListener('click', () => {
+        searchPanel.hidden = !searchPanel.hidden;
+        if (!searchPanel.hidden) document.getElementById('searchInput').focus();
+      });
+      document.getElementById('searchInput').addEventListener('input', event => {
+        const term = event.target.value.trim().toLowerCase();
+        document.querySelectorAll('.product-card').forEach(card => {
+          card.hidden = !card.dataset.name.includes(term) && !card.innerText.toLowerCase().includes(term);
+        });
+      });
+      document.getElementById('newsletterForm').addEventListener('submit', event => {
+        event.preventDefault();
+        document.getElementById('formMessage').textContent = '¡Gracias! Tu descuento del 10% ya está listo.';
+        event.target.reset();
+      });
+      drawCart();
+    })();
+  </script>
+</body>
+</html>
